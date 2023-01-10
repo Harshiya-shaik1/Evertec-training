@@ -290,6 +290,66 @@ public class JDBCAssesment_Evertec{
 
 			}
 		}
+		
+		
+		                               /*try {
+						String sqlQuery="select p.product_code,p.product_Name,p.Category,pp.DateOfPurchase,pp.quantity,pp.rate,(pp.quantity*pp.rate) as Total_Amount from product p, Purchase_product pp\r\n"
+								+ "where p.product_Code=pp.product_Code ";
+						rs=st.executeQuery(sqlQuery);
+						List<Filter> filterList=new ArrayList<>();
+						while(rs.next()) {
+							Filter obj=new Filter(rs.getString("product_Code"), 
+									rs.getString("product_Name"),
+									rs.getString("Category"),
+									rs.getDate("DateOfPurchase"), 
+									rs.getDouble("quantity"),
+									rs.getDouble("rate"),
+									rs.getDouble("Total_Amount"));
+							filterList.add(obj);
+
+						}
+
+						System.out.println("do you want to filter with the Category ? y/n");
+						ch=scn.next().charAt(0);
+
+						List<Filter> fList=null;
+						if(ch=='y'||ch=='Y') {
+							System.out.println("Enter the Category");
+							String category=scn.next();
+							fList=filterList.stream().filter(f-> f.getCategory().equals(category)).collect(Collectors.toList());
+						}
+						System.out.println("do you want to filter with the Rate? y/n");
+						ch=scn.next().charAt(0);
+
+						if(ch=='y'||ch=='Y') {
+							System.out.println(" Enter max value ");
+							double maxRate=scn.nextDouble();
+							System.out.println(" Enter min value ");
+							double minRate=scn.nextDouble();
+							fList=filterList.stream().filter(f->f.getRate()>=maxRate&& f.getRate()<minRate).collect(Collectors.toList());
+						}
+						System.out.println("do you want to filter with the DateOfPurchase? y/n");
+						ch=scn.next().charAt(0);
+						if(ch=='y'||ch=='Y') {
+							System.out.println(" Enter From Date ");
+							String fromDate=scn.next();
+
+							java.util.Date fDate = new SimpleDateFormat("dd/MM/yyyy").parse(fromDate);
+
+							System.out.println(" Enter To Date ");
+							String toDate=scn.next();
+
+							java.util.Date  tDate = new SimpleDateFormat("dd/MM/yyyy").parse(toDate);
+							fList=filterList.stream().filter(f->f.getDateOfPurchase().compareTo(fDate) > 0&&f.getDateOfPurchase().compareTo(tDate) < 0).collect(Collectors.toList());		
+						}
+						
+							fList.stream().distinct().toList().forEach(fL->System.out.println(fL))	;
+
+						}
+					catch(Exception e) {
+						e.printStackTrace();
+					}
+				}*/
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
