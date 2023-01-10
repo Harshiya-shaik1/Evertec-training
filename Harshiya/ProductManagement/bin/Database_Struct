@@ -1,0 +1,17 @@
+
+
+Product:
+ create table product(product_Code varchar(5) primary key,
+ Product_Name varchar(20) not null,
+ description varchar(300),
+ Category varchar(20) not null);
+ 
+ alter table product add column Updated_Date date;
+  alter table product add column Created_Date date;
+  
+  Purchase_Product:
+  create table Purchase_product( product_Code varchar(5),
+  FOREIGN KEY (product_Code) REFERENCES product(product_Code)  ON DELETE CASCADE ,
+  quantity int,
+  rate int,
+  DateOfPurchase date);
