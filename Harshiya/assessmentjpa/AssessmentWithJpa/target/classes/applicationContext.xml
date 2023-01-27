@@ -1,0 +1,51 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+       
+	<tx:annotation-driven
+		transaction-manager="jpaTxnManagerBean" proxy-target-class="true" />
+	
+	<bean id="dataSourceBean"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/productdatabase"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="Mastanbi@12"></property>
+		
+	</bean>
+	
+	<bean id="hbAdapterBean"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="showSql" value="true"></property>
+		<property name="generateDdl" value="true"></property>
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQL8Dialect"></property>
+	</bean>
+	
+	<bean id="emfBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSourceBean"></property>
+		<property name="jpaVendorAdapter" ref="hbAdapterBean"></property>
+		
+	</bean>
+	
+	<bean id="jpaTemplateBean" class="org.springframework.orm.jpa.JpaTemplate">
+		<property name="entityManagerFactory" ref="emfBean"></property>
+	</bean>
+	
+	<bean id="productDaoBean" class="com.jpa.dao.ProductDao">
+		<property name="template" ref="jpaTemplateBean"></property> 
+	</bean>
+	
+	<bean id="jpaTxnManagerBean" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="emfBean"></property>
+	</bean>
+	
+</beans>
