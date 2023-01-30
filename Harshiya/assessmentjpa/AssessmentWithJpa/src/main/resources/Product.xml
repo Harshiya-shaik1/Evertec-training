@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="1.0"   
+        xmlns="http://java.sun.com/xml/ns/persistence/orm"   
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm   
+        http://java.sun.com/xml/ns/persistence/orm_1_0.xsd ">  
+      
+    <entity class="com.jpa.entities.Product">  
+        <table name="Product"></table>  
+        <attributes>  
+            <id name="productCode">  
+                <column name="productCode"/>  
+            </id>  
+            <basic name="productName">
+                <column name="productName"/>
+            </basic>  
+            <basic name="category">  
+                <column name="category"/>  
+            </basic> 
+            <basic name="createdDate">  
+                <column name="createdDate"/>  
+            </basic>  
+            <basic name="updatedDate">  
+                <column name="updatedDate"/>  
+            </basic>   
+        </attributes>  
+    </entity>
+    <entity class="com.jpa.entities.PurchaseProduct">
+        <table name="PurchaseProduct"></table>
+        <attributes>
+            <id name="purchaseId">
+                <column name="purchaseId"/>
+            </id>
+            <basic name="productCode">
+                <column name="productCode"/>
+            </basic>
+            <basic name="quantity">
+                <column name="quantity"/>
+            </basic>
+            <basic name="rate">
+                <column name="rate"/>
+            </basic>
+            <basic name="purchasedate">
+                <column name="purchasedate"/>
+            </basic>
+            <basic name="createdDate">
+                <column name="createdDate"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>  

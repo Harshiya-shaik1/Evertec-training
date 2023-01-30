@@ -1,28 +1,24 @@
 package com.jpa.dao;
 
+import com.jpa.entities.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+
 import java.sql.Date;
 
-import javax.transaction.Transactional;
 
-import org.springframework.orm.jpa.JpaTemplate;
-
-import com.jpa.entities.Product;
-
-
-@Transactional
+@Component
 public class ProductDao {
-	public JpaTemplate template;
 
-	public JpaTemplate getTemplate() {
-		return template;
-	}
+    @Autowired
+    private ProductRespository productRespository;
 
-	public void setTemplate(JpaTemplate template) {
-		this.template = template;
-	}
-	 public void createProduct(String productCode, String productName, String category, Date createdDate, Date updatedDate){  
-	       Product prod=new Product(productCode,productName,category,createdDate,updatedDate);  
-	       template.persist(prod);
-	    }  
+
+
+    public void createProduct(String productCode, String productName, String category, Date createdDate, Date updatedDate) {
+        Product prod = new Product(productCode, productName, category, createdDate, updatedDate);
+        productRespository.save(prod);
+    }
 
 }

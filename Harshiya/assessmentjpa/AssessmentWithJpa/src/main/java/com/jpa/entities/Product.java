@@ -3,70 +3,71 @@ package com.jpa.entities;
 import java.sql.Date;
 
 public class Product {
-	private String productCode;
-	private String productName;
-	private String category ;
-	private Date createdDate;
-	private Date updatedDate;
-	
-	public Product() {
-		
-	}
+    private int id;
+    private String productCode;
+    private String productName;
+    private String category;
+    private Date createdDate;
+    private Date updatedDate;
 
-	public Product(String productCode, String productName, String category, Date createdDate, Date updatedDate) {
-		super();
-		this.productCode = productCode;
-		this.productName = productName;
-		this.category = category;
-		this.createdDate = createdDate;
-		this.updatedDate = updatedDate;
-	}
+    public Product() {
 
-	public String getProductCode() {
-		return productCode;
-	}
+    }
 
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
-	}
+    public Product(String productCode, String productName, String category, Date createdDate, Date updatedDate) {
+        super();
+        this.productCode = productCode;
+        this.productName = productName;
+        this.category = category;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
 
-	public String getProductName() {
-		return productName;
-	}
+    public String getProductCode() {
+        return productCode;
+    }
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
 
-	public String getCategory() {
-		return category;
-	}
+    public String getProductName() {
+        return productName;
+    }
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
+    public String getCategory() {
+        return category;
+    }
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-	public Date getUpdatedDate() {
-		return updatedDate;
-	}
+    public Date getCreatedDate() {
+        return createdDate;
+    }
 
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
-	}
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
 
-	@Override
-	public String toString() {
-		return "Product [productCode=" + productCode + ", productName=" + productName + ", category=" + category
-				+ ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + "]";
-	}
-	
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Product [productCode=" + productCode + ", productName=" + productName + ", category=" + category
+                + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + "]";
+    }
+
 
 }

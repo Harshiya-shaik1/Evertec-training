@@ -6,6 +6,7 @@
       
     <persistence-unit name="ForAccountsDB">  
         <mapping-file>Product.xml</mapping-file>  
-        <class>com.jpa.entities.Product</class>  
+        <class>com.jpa.entities.Product</class>
+        <class>com.jpa.entities.PurchaseProduct</class>
     </persistence-unit>  
 </persistence>  

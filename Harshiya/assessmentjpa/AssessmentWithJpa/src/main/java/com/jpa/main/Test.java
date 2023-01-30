@@ -1,6 +1,5 @@
 package com.jpa.main;
 
-import java.sql.Date;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
